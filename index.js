@@ -44,3 +44,48 @@ buttonToCount.addEventListener('click', function () {
   }
 });
 
+// 4 задание 1 пункт
+const containerForVisuallyImpaired = document.getElementById('visually-impaired');
+function setColor(setting) {
+  let color = '#000000';
+  let backgroundColor = '#F0F0F0';
+
+  switch(setting) {
+    case 'black':
+      color = '#F0F0F0';
+      backgroundColor = '#000000';
+      break;
+    case 'blue':
+      color = '#063462';
+      backgroundColor = '#9DD1FF';
+      break;
+    case 'grey':
+      color = '#4D4B43';
+      backgroundColor = '#F7F3D6';
+      break;
+    case 'green':
+      color = '#A9E44D';
+      backgroundColor = '#3B2716';
+      break;
+    default:
+      break;
+  }
+
+  containerForVisuallyImpaired.style.color = color; 
+  containerForVisuallyImpaired.style.backgroundColor = backgroundColor; 
+}
+
+function setFontSize(size) {
+  containerForVisuallyImpaired.style.fontSize = `${size}pt`; 
+}
+
+// 4 задание 2 пункт
+const table = document.getElementById('table-4');
+
+// Добавляем обработчик события на всю таблицу
+table.addEventListener('click', (event) => {
+  if (['th', 'td'].includes(event.target.tagName.toLowerCase()) && event.shiftKey) {
+    const tr = event.target.parentElement;
+    tr.remove();
+  }
+});
